@@ -1,6 +1,7 @@
 interface PatchNotes{
     version: string;
     date: string;
+    importantMessage: string;
     changes: string[];
 }
 
@@ -8,10 +9,8 @@ const changelogs: PatchNotes[] = [
     {
         version: "0.0.1 (Prototype)",
         date: "2026-09-19",
+        importantMessage: "PLEASE KEEP IN MIND: that the Declarations in this version are inaccurate",
         changes: [
-            "PLEASE KEEP IN MIND: that the Declarations are inaccurate",
-            "                                                          ",
-            "                                                          ",
             "Added: Move Joystick",
             "Added: Attack Joystick",
             "Added: enemies",
@@ -23,9 +22,12 @@ const changelogs: PatchNotes[] = [
     {
         version: "0.0.2 (Prototype)",
         date: "2026-09-24",
+        importantMessage: "",
         changes: [
-            "Added: ",
-            "Fixed: "
+            "Added: Multiple projectiles can now be fired with a single shot.",
+            "Added: The map has been given walls.",
+            "Fixed: projectiles are now correctly reset and only returned to the pool upon impact.",
+            "Fixed: you no longer stop if you hold down the joystick without moving it."
         ]
     }
 ];
@@ -36,11 +38,16 @@ const changeLogContent = document.getElementById("changelog-content");
 
 function ShowVersion(versionData: PatchNotes): void{
     if(changeLogContent != null)
-    changeLogContent.innerHTML = `<h2>Version ${versionData.version}</h2><p>Released on: ${versionData.date}</p><ul>${versionData.changes.map((change: string) => `<li>${change}</li>`).join('')}</ul>`;
+    {
+        const importantMessage = versionData.importantMessage?.trim() ? "<p>Important Message for this Release: ${versionData.importantMessage}</p>" : "";
+
+        changeLogContent.innerHTML = `<h2>Version ${versionData.version}</h2><p>Released on: ${versionData.date}</p>${importantMessage}<ul>${versionData.changes.map((change: string) => `<li>${change}</li>`).join('')}</ul>`;
+    }
 }
 
 changelogs.forEach((log: PatchNotes) => {
     const button = document.createElement("button");
+    button.id = "buttonId";
     button.textContent = `Changelog ${log.version}`;
 
     button.addEventListener("click", () =>{

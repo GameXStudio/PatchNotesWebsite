@@ -29,6 +29,13 @@ const changelogs: PatchNotes[] = [
             "Fixed: projectiles are now correctly reset and only returned to the pool upon impact.",
             "Fixed: you no longer stop if you hold down the joystick without moving it."
         ]
+    },
+    {
+        version: "0.0.3 (Prototype)",
+        date: "2026-",
+        importantMessage: "",
+        changes: [
+        ]
     }
 ];
 

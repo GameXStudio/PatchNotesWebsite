@@ -8,7 +8,7 @@ interface PatchNotes{
 const changelogs: PatchNotes[] = [
     {
         version: "0.0.1 (Prototype)",
-        date: "2026-09-17",
+        date: "2026-09-17",  // ungefaähr 17 - 19
         importantMessage: "please keep in mind that the Declarations in this version are inaccurate",
         changes: [
             "Added: Move Joystick",

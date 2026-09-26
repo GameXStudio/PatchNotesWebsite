@@ -9,7 +9,7 @@ const changelogs: PatchNotes[] = [
     {
         version: "0.0.1 (Prototype)",
         date: "2026-09-19",
-        importantMessage: "PLEASE KEEP IN MIND: that the Declarations in this version are inaccurate",
+        importantMessage: "please keep in mind that the Declarations in this version are inaccurate",
         changes: [
             "Added: Move Joystick",
             "Added: Attack Joystick",
@@ -32,9 +32,13 @@ const changelogs: PatchNotes[] = [
     },
     {
         version: "0.0.3 (Prototype)",
-        date: "2026-",
-        importantMessage: "",
+        date: "2026-09-28",
+        importantMessage: "Too many enemies can cause Problems",
         changes: [
+            "Fixed: The projectiles from the pool spawn correctly when you shoot them sideways.",
+            "Fixed: The projectiles from the pool are now being spawned correctly.",
+            "Fixed: The glitching issue with projectlien has now been fixed.",
+            "Fixed: Enemies can no longer glitch into the player."
         ]
     }
 ];

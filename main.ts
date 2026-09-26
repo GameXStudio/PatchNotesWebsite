@@ -32,7 +32,7 @@ const changelogs: PatchNotes[] = [
     },
     {
         version: "0.0.3 (Prototype)",
-        date: "2026-09-28",
+        date: "2026-09-26",
         importantMessage: "Too many enemies can cause Problems",
         changes: [
             "Fixed: The projectiles from the pool spawn correctly when you shoot them sideways.",

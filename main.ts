@@ -43,10 +43,14 @@ const versionList = document.getElementById("version-list");
 
 const changeLogContent = document.getElementById("changelog-content");
 
+const buttonClasslist = "button-clicked";
+
+let buttonList: HTMLButtonElement[] = [];
+
 function ShowVersion(versionData: PatchNotes): void{
     if(changeLogContent != null)
     {
-        const importantMessage = versionData.importantMessage?.trim() ? "<p>Important Message for this Release: ${versionData.importantMessage}</p>" : "";
+        const importantMessage = versionData.importantMessage?.trim() ? `<p>Important Message for this Release: ${versionData.importantMessage}</p>` : "";
 
         changeLogContent.innerHTML = `<h2>Version ${versionData.version}</h2><p>Released on: ${versionData.date}</p>${importantMessage}<ul>${versionData.changes.map((change: string) => `<li>${change}</li>`).join('')}</ul>`;
     }
@@ -54,11 +58,19 @@ function ShowVersion(versionData: PatchNotes): void{
 
 changelogs.forEach((log: PatchNotes) => {
     const button = document.createElement("button");
+
+    buttonList.push(button);
+
     button.id = "buttonId";
     button.textContent = `Changelog ${log.version}`;
 
     button.addEventListener("click", () =>{
+        buttonList.forEach((btn: HTMLButtonElement) => {
+            btn.classList.remove(buttonClasslist);
+        });
+
         ShowVersion(log);
+        button.classList.add(buttonClasslist);
     });
 
     if(versionList){
